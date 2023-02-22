@@ -1,0 +1,172 @@
+﻿<Page
+    x:Class="CodeHaven.Assignment.App.Views.FarmersPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CodeHaven.Assignment.App.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="Poppins"
+    Background="#f2f4f6">
+
+    <Grid Margin="30,30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#fafbfc" Margin="0,0,0,30" CornerRadius="5">
+            <StackPanel Grid.Row="0" Orientation="Horizontal"
+                              Spacing="25" Margin="20" VerticalAlignment="Center">
+                <Border Width="80" Height="80" Background="White" CornerRadius="5">
+                    <Image Source="/Images/agenda.png" Width="50" Height="50"/>
+                </Border>
+
+                <StackPanel Spacing="5">
+                    <TextBlock Text="Farmer's Panel" FontSize="25" FontWeight="SemiBold"/>
+                    <TextBlock Text="Lorem ipsum dolor sit amet consectetur. Est amet lobortis etiam justo vel." FontSize="15"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="1" Background="White" CornerRadius="5" Padding="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="Personal Details" 
+                       FontSize="22" FontWeight="SemiBold" Margin="0,0,0,10"/>
+
+                <Pivot Grid.Row="1">
+                    <PivotItem>
+                        <TextBlock Text="Item One go here." Margin="0,20,0,0"/>
+
+                        <PivotItem.Header>
+                            <TextBlock Text="Item One" FontSize="15"/>
+                        </PivotItem.Header>
+                    </PivotItem>
+                    
+                    <PivotItem>
+                        <Grid ColumnSpacing="20" Margin="0,20,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+
+                            <Grid Grid.Column="0" ColumnSpacing="5" RowSpacing="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+
+                                <PersonPicture Grid.Row="0" Grid.ColumnSpan="2" Height="120"
+                                               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                <StackPanel Grid.Row="1" Grid.Column="0">
+                                    <Button Content="Button" />
+                                    <TextBlock Text="Take a photo"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1" Grid.Column="1">
+                                    <Button Content="Button"/>
+                                    <TextBlock Text="Upload photo"/>
+                                </StackPanel>
+
+
+                                <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Text="Gender"/>
+                                <RadioButton Content="Male" Grid.Row="3" Grid.Column="0"/>
+                                <RadioButton Content="Female" Grid.Row="3" Grid.Column="1"/>
+                            </Grid>
+
+
+                            <Grid Grid.Column="1" RowSpacing="10" ColumnSpacing="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+
+                                <TextBox Grid.Row="0" Grid.Column="0" Header="Name"/>
+                                <TextBox Grid.Row="0" Grid.Column="01" Header="Last Name"/>
+
+                                <TextBox Grid.Row="01" Grid.Column="0" Header="Birth Place"/>
+                                <CalendarDatePicker Grid.Row="01" Grid.Column="01" Header="Date of Birth"/>
+
+                                <TextBox Grid.Row="02" Grid.Column="0" Header="House No."/>
+                                <TextBox Grid.Row="02" Grid.Column="01" Header="Community"/>
+
+                                <TextBox Grid.Row="03" Grid.Column="0" Header="Occupation"/>
+                                <TextBox Grid.Row="03" Grid.Column="01" Header="District"/>
+
+                                <TextBox Grid.Row="04" Grid.Column="0" Header="Region"/>
+                                <TextBox Grid.Row="04" Grid.Column="01" Header="Marital Status"/>
+                            </Grid>
+
+
+                            <Grid Grid.Column="3">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="150"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <RichEditBox Grid.Row="0" Header="Bio" Height="150" VerticalAlignment="Top"
+                                             PlaceholderText="Write a short introduction"/>
+
+                                <StackPanel Orientation="Horizontal" Grid.Row="1"
+                                            Spacing="10" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                                    <Button Content="Reset"/>
+                                    <Button Content="Save"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+
+                        <PivotItem.Header>
+                            <TextBlock Text="Item Two" FontSize="15"/>
+                        </PivotItem.Header>
+                    </PivotItem>
+                    <PivotItem>
+                        <TextBlock Text="Item Three go here." Margin="0,20,0,0"/>
+
+                        <PivotItem.Header>
+                            <TextBlock Text="Item Three" FontSize="15"/>
+                        </PivotItem.Header>
+                    </PivotItem>
+                    <PivotItem>
+                        <TextBlock Text="Item Four go here." Margin="0,20,0,0"/>
+
+                        <PivotItem.Header>
+                            <TextBlock Text="Item Four" FontSize="15"/>
+                        </PivotItem.Header>
+                    </PivotItem>
+
+                    <PivotItem>
+                        <TextBlock Text="Item Five go here." Margin="0,20,0,0"/>
+
+                        <PivotItem.Header>
+                            <TextBlock Text="Item Five" FontSize="15"/>
+                        </PivotItem.Header>
+                    </PivotItem>
+
+                   
+                </Pivot>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
