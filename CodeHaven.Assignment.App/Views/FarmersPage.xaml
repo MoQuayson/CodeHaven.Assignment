@@ -4,18 +4,107 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:CodeHaven.Assignment.App.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls" xmlns:iconPacks="using:MahApps.Metro.IconPacks" xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
     mc:Ignorable="d"
     FontFamily="Poppins"
     Background="#f2f4f6">
 
+    <Page.Resources>
+        <media:AttachedCardShadow x:Key="CommonShadow" Offset="1"/>
+        <Style x:Key="ResetBtnStyle" TargetType="Button">
+            <Setter Property="Background" Value="#22A45D"/>
+            <Setter Property="Foreground" Value="white"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="RootElement" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}"
+                                    Width="{TemplateBinding Width}" Padding="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="PointerOver">
+                                        <VisualState.Setters>
+                                            <Setter Target="RootElement.Background" Value="LightGreen"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed"/>
+                                    <VisualState x:Name="Disabled"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SaveBtnStyle" TargetType="Button">
+            <Setter Property="Background" Value="white"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="BorderBrush" Value="#22A45D"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="RootElement" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}"
+                                    Width="{TemplateBinding Width}" Padding="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="PointerOver">
+                                        <VisualState.Setters>
+                                            <Setter Target="RootElement.Background" Value="AliceBlue"/>
+                                            
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed"/>
+                                    <VisualState x:Name="Disabled"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="TextBxStyle" TargetType="TextBox">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+
+        <Style x:Key="MediaBtnStyle" TargetType="Button">
+            <Setter Property="CornerRadius" Value="100"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="50"/>
+        </Style>
+
+        <Style x:Key="BorderStyle" TargetType="Border">
+            <Setter Property="Shadow" Value="{StaticResource CommonShadow}"/>
+        </Style>
+    </Page.Resources>
+    
+    
+    
     <Grid Margin="30,30">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Background="#fafbfc" Margin="0,0,0,30" CornerRadius="5">
+        <Border Grid.Row="0" Background="#fafbfc" Margin="0,0,0,30"
+                CornerRadius="5" Style="{StaticResource BorderStyle}">
             <StackPanel Grid.Row="0" Orientation="Horizontal"
                               Spacing="25" Margin="20" VerticalAlignment="Center">
                 <Border Width="80" Height="80" Background="White" CornerRadius="5">
@@ -50,42 +139,47 @@
                     <PivotItem>
                         <Grid ColumnSpacing="20" Margin="0,20,0,0">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
 
                             <Grid Grid.Column="0" ColumnSpacing="5" RowSpacing="5">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="2*"/>
-                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-
-
-                                <PersonPicture Grid.Row="0" Grid.ColumnSpan="2" Height="120"
+                                <StackPanel Grid.Row="0" HorizontalAlignment="center" Spacing="15">
+                                    <PersonPicture Height="120"
                                                VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-                                <StackPanel Grid.Row="1" Grid.Column="0">
-                                    <Button Content="Button" />
-                                    <TextBlock Text="Take a photo"/>
+                                    <controls:DockPanel LastChildFill="False" Width="160" HorizontalAlignment="Center">
+                                        
+                                        <Button controls:DockPanel.Dock="Left"
+                                            Style="{StaticResource MediaBtnStyle}" ToolTipService.ToolTip="Take a photo">
+                                            <iconPacks:PackIconFontAwesome Kind="CameraSolid"/>
+                                        </Button>
+
+                                        <Button controls:DockPanel.Dock="Right"
+                                            Style="{StaticResource MediaBtnStyle}" ToolTipService.ToolTip="Upload photo">
+                                            <iconPacks:PackIconFontAwesome Kind="UploadSolid"/>
+                                        </Button>
+
+                                    </controls:DockPanel>
                                 </StackPanel>
 
-                                <StackPanel Grid.Row="1" Grid.Column="1">
-                                    <Button Content="Button"/>
-                                    <TextBlock Text="Upload photo"/>
+
+
+
+                                <StackPanel Grid.Row="2" HorizontalAlignment="Center">
+                                    <TextBlock  Text="Gender" FontSize="19"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton Content="Male" GroupName="GenderRdBtn" FontSize="13"/>
+                                        <RadioButton Content="Female" GroupName="GenderRdBtn" FontSize="13"/>
+                                    </StackPanel>
                                 </StackPanel>
-
-
-                                <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Text="Gender"/>
-                                <RadioButton Content="Male" Grid.Row="3" Grid.Column="0"/>
-                                <RadioButton Content="Female" Grid.Row="3" Grid.Column="1"/>
                             </Grid>
 
 
@@ -104,20 +198,20 @@
                                 </Grid.ColumnDefinitions>
 
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Header="Name"/>
-                                <TextBox Grid.Row="0" Grid.Column="01" Header="Last Name"/>
+                                <TextBox Style="{StaticResource TextBxStyle}" Grid.Row="0" Grid.Column="0" Header="Name"/>
+                                <TextBox Style="{StaticResource TextBxStyle}" Grid.Row="0" Grid.Column="01" Header="Last Name"/>
 
-                                <TextBox Grid.Row="01" Grid.Column="0" Header="Birth Place"/>
-                                <CalendarDatePicker Grid.Row="01" Grid.Column="01" Header="Date of Birth"/>
+                                <TextBox Style="{StaticResource TextBxStyle}" Grid.Row="01" Grid.Column="0" Header="Birth Place"/>
+                                <CalendarDatePicker Grid.Row="01" Grid.Column="01" Header="Date of Birth" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
-                                <TextBox Grid.Row="02" Grid.Column="0" Header="House No."/>
-                                <TextBox Grid.Row="02" Grid.Column="01" Header="Community"/>
+                                <TextBox Style="{StaticResource TextBxStyle}" Grid.Row="02" Grid.Column="0" Header="House No."/>
+                                <TextBox Style="{StaticResource TextBxStyle}"  Grid.Row="02" Grid.Column="01" Header="Community"/>
 
-                                <TextBox Grid.Row="03" Grid.Column="0" Header="Occupation"/>
-                                <TextBox Grid.Row="03" Grid.Column="01" Header="District"/>
+                                <TextBox Style="{StaticResource TextBxStyle}" Grid.Row="03" Grid.Column="0" Header="Occupation"/>
+                                <TextBox Style="{StaticResource TextBxStyle}" Grid.Row="03" Grid.Column="01" Header="District"/>
 
-                                <TextBox Grid.Row="04" Grid.Column="0" Header="Region"/>
-                                <TextBox Grid.Row="04" Grid.Column="01" Header="Marital Status"/>
+                                <TextBox Style="{StaticResource TextBxStyle}" Grid.Row="04" Grid.Column="0" Header="Region"/>
+                                <TextBox Style="{StaticResource TextBxStyle}" Grid.Row="04" Grid.Column="01" Header="Marital Status"/>
                             </Grid>
 
 
@@ -131,8 +225,8 @@
 
                                 <StackPanel Orientation="Horizontal" Grid.Row="1"
                                             Spacing="10" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-                                    <Button Content="Reset"/>
-                                    <Button Content="Save"/>
+                                    <Button Content="Reset" Style="{StaticResource ResetBtnStyle}"/>
+                                    <Button Content="Save" Style="{StaticResource SaveBtnStyle}"/>
                                 </StackPanel>
                             </Grid>
                         </Grid>

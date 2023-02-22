@@ -39,11 +39,11 @@
                                       HorizontalAlignment="Right" Spacing="5">
                     <AutoSuggestBox Width="250" Height="35" QueryIcon="Find"
                                     PlaceholderText="Type to search" CornerRadius="15" />
-                    <ToggleButton  Height="50" CornerRadius="10">
+                    <ToggleButton  Height="40" CornerRadius="10">
                         <BitmapIcon UriSource="/Images/lamp (1).png"/>
                     </ToggleButton>
 
-                    <ToggleButton  Height="50" CornerRadius="10">
+                    <ToggleButton  Height="40" CornerRadius="10">
                         <BitmapIcon UriSource="/Images/language.png"/>
                     </ToggleButton>
                 </StackPanel>
