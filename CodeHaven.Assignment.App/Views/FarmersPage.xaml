@@ -4,13 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:CodeHaven.Assignment.App.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls" xmlns:iconPacks="using:MahApps.Metro.IconPacks" xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls" 
+    xmlns:iconPacks="using:MahApps.Metro.IconPacks" xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media" xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     mc:Ignorable="d"
     FontFamily="Poppins"
     Background="#f2f4f6">
 
     <Page.Resources>
-        <media:AttachedCardShadow x:Key="CommonShadow" Offset="1"/>
+        <media:AttachedCardShadow x:Key="CommonShadow" Offset="0.6" CornerRadius="5" BlurRadius="5"/>
         <Style x:Key="ResetBtnStyle" TargetType="Button">
             <Setter Property="Background" Value="#22A45D"/>
             <Setter Property="Foreground" Value="white"/>
@@ -91,7 +92,8 @@
         </Style>
 
         <Style x:Key="BorderStyle" TargetType="Border">
-            <Setter Property="Shadow" Value="{StaticResource CommonShadow}"/>
+            <Setter Property="ui:Effects.Shadow" Value="{StaticResource CommonShadow}"/>
+
         </Style>
     </Page.Resources>
     
@@ -103,8 +105,7 @@
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Background="#fafbfc" Margin="0,0,0,30"
-                CornerRadius="5" Style="{StaticResource BorderStyle}">
+        <Border Grid.Row="0" Background="#fafbfc" Margin="0,0,0,30" Style="{StaticResource BorderStyle}">
             <StackPanel Grid.Row="0" Orientation="Horizontal"
                               Spacing="25" Margin="20" VerticalAlignment="Center">
                 <Border Width="80" Height="80" Background="White" CornerRadius="5">
@@ -117,7 +118,7 @@
                 </StackPanel>
             </StackPanel>
         </Border>
-        <Border Grid.Row="1" Background="White" CornerRadius="5" Padding="20">
+        <Border Grid.Row="1" Background="White" Padding="20" Style="{StaticResource BorderStyle}" >
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
@@ -127,7 +128,7 @@
                 <TextBlock Grid.Row="0" Text="Personal Details" 
                        FontSize="22" FontWeight="SemiBold" Margin="0,0,0,10"/>
 
-                <Pivot Grid.Row="1">
+                <Pivot Grid.Row="1" SelectedIndex="1">
                     <PivotItem>
                         <TextBlock Text="Item One go here." Margin="0,20,0,0"/>
 
@@ -141,7 +142,7 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="1*"/>
                             </Grid.ColumnDefinitions>
 
 
