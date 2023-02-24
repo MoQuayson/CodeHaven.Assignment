@@ -2,4 +2,4 @@
 
 ## Screenshots
 
-![App Screenshot]("../../Screenshots/screenshot.png")
+![App Screenshot]("https://github.com/CodeHaven.Assignment/blob/master/Screenshots/Screenshot.png")
