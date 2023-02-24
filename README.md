@@ -2,4 +2,4 @@
 
 ## Screenshots
 
-![App Screenshot]("/Screenshots/screenshot.png")
+![App Screenshot]("../../Screenshots/screenshot.png")
